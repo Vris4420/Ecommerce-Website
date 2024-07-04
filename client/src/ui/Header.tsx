@@ -2,11 +2,23 @@ import { useState } from "react";
 import { logo } from "../assets";
 import { IoClose, IoSearchOutline } from "react-icons/io5";
 import { FiShoppingBag, FiStar, FiUser } from "react-icons/fi";
+import Container from "./Container";
+import { FaChevronDown } from "react-icons/fa";
+
+const bottomNavigation = [
+  {title:"Home", link:"/"},
+  {title:"Shop", link:"/product"},
+  {title:"Cart", link:"/cart"},
+  {title:"Orders", link:"/orders"},
+  {title:"My Account", link:"/orders"},
+  {title:"Blog", link:"/blog"},
+];
 
 const Header = () => {
   const [searchText, setSearchText] = useState("");
   return (
     <div className="w-full bg-red-300">
+      {/* initial header  */}
       <div className="max-w-screen-xl mx-auto h-20 flex items-center justify-between px-4 lg:px-0">
         <img src={logo} alt="logo" className="w-44" />
         <div className="hidden md:inline-flex max-w-3xl w-full relative">
@@ -41,6 +53,22 @@ const Header = () => {
             </span>
           </div>
         </div>
+      </div>
+      {/* second header  */}
+      <div className="w-full bg-darkText text-whiteText">
+        <Container className="py-2 max-w-4xl flex items-center gap-5 justify-center">
+          <p className="flex items-center gap-1">
+            select category <FaChevronDown />{" "}
+          </p>
+          {
+            bottomNavigation.map(({title,link}) => (
+              <p key={title} className="uppercase hidden md:inline-flex text--sm font-semibold text-whiteText/90 hover:text-whiteText duration-200 relative overflow-hidden group">
+                {title}
+                <span className="inline-flex w-full h-[1px] bg-whiteText absolute bottom-0 left-0 transform -translate-x-[105%] group-hover:translate-x-0 duration-300:"></span>
+              </p>
+            ))
+          }
+        </Container>
       </div>
     </div>
   );
