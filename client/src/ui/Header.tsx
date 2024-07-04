@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { logo } from "../assets";
 import { IoClose, IoSearchOutline } from "react-icons/io5";
+import { FiShoppingBag, FiStar, FiUser } from "react-icons/fi";
 
 const Header = () => {
   const [searchText, setSearchText] = useState("");
@@ -24,6 +25,21 @@ const Header = () => {
           ) : (
             <IoSearchOutline className="top-2.5 right-4 text-xl absolute " />
           )}
+        </div>
+        <div className="flex items-center gap-x-6 text-2xl">
+          <FiUser className="hover:text-skyText duration-200 cursor-pointer  bg-yellow-600 " />
+          <div className="relative block bg-yellow-600">
+            <FiStar className="hover:text-skyText duration-200 cursor-pointer " />
+            <span className="inline-flex items-center justify-center bg-redText text-whiteText absolute -top-1 -right-2 text-[9px] rounded-full w-4 h-4">
+              0
+            </span>
+          </div>
+          <div className="relative block bg-yellow-600">
+            <FiShoppingBag className="hover:text-skyText duration-200 cursor-pointer " />
+            <span className="inline-flex items-center justify-center bg-redText text-whiteText absolute -top-1 -right-2 text-[9px] rounded-full w-4 h-4">
+              0
+            </span>
+          </div>
         </div>
       </div>
     </div>
